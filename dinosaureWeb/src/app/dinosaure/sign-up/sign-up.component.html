@@ -1,0 +1,49 @@
+<div>
+  <img src="../../../assets/img/dinosaures.jpg" id="icon" alt="Dinosaure Icon" />
+</div>
+<form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
+    <input type="text" #login="ngModel" [(ngModel)]="dinosaureService.selectedDinosaure.login" name="login" placeholder="login"
+    required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !login.valid }">
+    <div *ngIf="signUpForm.submitted && !login.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+
+      <input type="password" #password="ngModel" [(ngModel)]="dinosaureService.selectedDinosaure.password" name="password" placeholder="password"
+    required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !password.valid }">
+    <div *ngIf="signUpForm.submitted && !password.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+
+      <input type="number"  #age="ngModel" [(ngModel)]="dinosaureService.selectedDinosaure.age" name="age" placeholder="age"
+    required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !age.valid }">
+    <div *ngIf="signUpForm.submitted && !age.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+
+      <input type="text" #famille="ngModel" [(ngModel)]="dinosaureService.selectedDinosaure.famille" name="famille" placeholder="famille"
+    required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !famille.valid }">
+    <div *ngIf="signUpForm.submitted && !famille.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+    <input type="text" #race="ngModel" [(ngModel)]="dinosaureService.selectedDinosaure.race" name="race" placeholder="race"
+    required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !race.valid }">
+    <div *ngIf="signUpForm.submitted && !race.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+    <input type="text" #nourriture="ngModel" [(ngModel)]="dinosaureService.selectedDinosaure.nourriture" name="nourriture" placeholder="nourriture"
+    required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !nourriture.valid }">
+    <div *ngIf="signUpForm.submitted && !nourriture.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+    <input type="submit"  value="Sign Up">
+  </form>
+
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+
+  <!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>

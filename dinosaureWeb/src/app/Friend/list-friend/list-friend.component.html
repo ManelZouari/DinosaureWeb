@@ -1,0 +1,43 @@
+
+
+
+
+  <h1 class="text-center" style="text-align: center" *ngIf="size <= 0 ">No Friends!</h1>
+
+
+ <h1 *ngIf="size >= 0" style="text-align: center; color: #000000;"   >
+
+      <div    *ngFor="let friend of friends">
+
+
+
+             {{ friend.friend }}
+
+
+
+
+
+ </div>
+
+ <input type="button" (click)="Back()" value="Back" />
+ <form #editForm="ngForm" (ngSubmit)="editForm.valid && onSubmit(editForm)" style="text-align: center">
+
+
+    <input type="string"  #friend="ngModel" [(ngModel)]="frnd" name="friend">
+
+
+
+ <input type="submit"  value="Add Friend" >
+ <input type="string"  #friend="ngModel" [(ngModel)]="delfrnd" name="delfrnd">
+ <input type="button" (click)="delFrnd(editForm)" value="Delete Friend" />
+ <input type="button" (click)="addnewfriend()" value="Add new Friend" />
+
+
+
+
+ </form>
+ <div  *ngIf="serverMessages">
+    {{serverMessages}}
+  </div>
+</h1>
+

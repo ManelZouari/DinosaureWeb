@@ -1,0 +1,26 @@
+<h1 style="text-align: center">Edit Profile</h1>
+<div></div>
+<form #editForm="ngForm" (ngSubmit)="editForm.valid && onSubmit(editForm)" style="text-align: center">
+
+
+      <input type="number"  #age="ngModel" [(ngModel)]="dinosaureDetails.age" name="age">
+
+      <input type="text" #famille="ngModel" [(ngModel)]="dinosaureDetails.famille" name="famille" placeholder="famille">
+
+    <input type="text" #race="ngModel" [(ngModel)]="dinosaureDetails.race" name="race" placeholder="race">
+
+    <input type="text" #nourriture="ngModel" [(ngModel)]="dinosaureDetails.nourriture" name="nourriture" placeholder="nourriture">
+<div></div>
+    <input type="submit"  value="Edit" >
+    <input type="button"  value  ="Back" (click)="Back()">
+  </form>
+
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+
+
+
+
+
